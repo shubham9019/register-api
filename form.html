@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	
+#btn{
+	background-color:blue;
+	color:white;
+	height:35px;
+	width:100px;
+	border-radius:25px ;
+	}
+	#btn:hover
+	{
+	background-color:red;
+	}
+	span
+	{
+	color:red;
+	}
+	
+	</style>
+	<title>Form</title>
+</head>
+
+<form>
+
+<body>
+	<table align="center" cellspacing="20">
+<tr>
+<td>Name<td>
+	<input type="text" id="name" name ="name" required placeholder="Name">
+	<br><span id="namee"></span>
+	</td>
+</tr>
+<tr>
+<td>Username<td>
+	<input type="text" id="username" name ="username" required placeholder="Username">
+	<br><span id="user"></span>
+	</td>
+</tr>
+
+<td>E-mail<td>
+	<input type="email" id="email" name="email" required placeholder="E-mail">
+	<br><span id="eml"></span>
+	</td>
+</tr>
+
+<td>Mobile<td>
+	<input type="tel" id="mobile" name="mobile"required placeholder="Mobile">
+	<br><span id="mobil"></span>
+	</td>
+</tr>
+
+<td>Gender<td>
+	<input type="radio" name="gender" value ="male" required>
+	<label>Male</label>
+	<input type="radio" name="gender" value="female" required>
+	<label>Female</label>
+	</td>
+</tr>
+
+
+<td>Skills<td>
+
+  <input type="checkbox" id="java" name="skills" value="java">
+  <label for="html">JAVA</label><br>
+  <input type="checkbox" id="cpp" name="skills" value="cpp">
+  <label for="html">C++</label><br> 
+ <input type="checkbox" id="mysql" name="skills" value="mysql">
+  <label for="html">MySQL</label><br>  
+ <input type="checkbox" id="html" name="skills" value="html">
+  <label for="html">HTML</label><br>
+  <input type="checkbox" id="css" name="skills" value="css">
+  <label for="css">CSS</label><br>
+  <input type="checkbox" id="javascript" name="skills" value="javascript">
+  <label for="javascript">JavaScript</label><br><br>
+</td>
+</tr>
+
+
+<td>State<td>
+<select name="state" id="state">
+	<option value="Select state">Select state</option>
+	<option value="Andhra Pradesh">Andhra Pradesh</option>
+	<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+	<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+	<option value="Assam">Assam</option>
+	<option value="Bihar">Bihar</option>
+	<option value="Chandigarh">Chandigarh</option>
+	<option value="Chhattisgarh">Chhattisgarh</option>
+	<option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+	<option value="Daman and Diu">Daman and Diu</option>
+	<option value="Delhi">Delhi</option>
+	<option value="Lakshadweep">Lakshadweep</option>
+	<option value="Puducherry">Puducherry</option>
+	<option value="Goa">Goa</option>
+	<option value="Gujarat">Gujarat</option>
+	<option value="Haryana">Haryana</option>
+	<option value="Himachal Pradesh">Himachal Pradesh</option>
+	<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+	<option value="Jharkhand">Jharkhand</option>
+	<option value="Karnataka">Karnataka</option>
+	<option value="Kerala">Kerala</option>
+	<option value="Madhya Pradesh">Madhya Pradesh</option>
+	<option value="Maharashtra">Maharashtra</option>
+	<option value="Manipur">Manipur</option>
+	<option value="Meghalaya">Meghalaya</option>
+	<option value="Mizoram">Mizoram</option>
+	<option value="Nagaland">Nagaland</option>
+	<option value="Odisha">Odisha</option>
+	<option value="Punjab">Punjab</option>
+	<option value="Rajasthan">Rajasthan</option>
+	<option value="Sikkim">Sikkim</option>
+	<option value="Tamil Nadu">Tamil Nadu</option>
+	<option value="Telangana">Telangana</option>
+	<option value="Tripura">Tripura</option>
+	<option value="Uttar Pradesh">Uttar Pradesh</option>
+	<option value="Uttarakhand">Uttarakhand</option>
+	<option value="West Bengal">West Bengal</option>
+</select>
+<br>
+
+<tr>
+<td>Profile Picture<td>
+<label for="img">Select image:</label>
+<input type="file" id="img" name="file" accept="image/*" required>
+  </td>
+  </tr>
+<tr>
+	<td colspan="2" align="center">
+	<input type="submit" id="btn" ></a> 
+	</td>
+</tr>	
+</table>
+</form>
+
+<script>
+const formElem = document.querySelector('form');
+formElem.addEventListener('submit', (e) => {
+  // on form submission, prevent default
+  e.preventDefault();
+
+  // construct a FormData object, which fires the formdata event
+  new FormData(formElem);
+});
+
+formElem.addEventListener('formdata', (e) => {
+    let data = e.formData;
+    let request = new XMLHttpRequest();
+    request.open("POST", "http://localhost:8080/profile");
+    request.send(data);
+    setTimeout(function(){
+        window.location.href = "http://localhost:8080/get_profile/" + document.getElementById("username").value;
+    }, 1000);
+;
+
+});
+</script>
+
+</body>
+</html>
