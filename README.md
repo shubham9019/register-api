@@ -1,7 +1,7 @@
 # Register-API
 <p align="center">
   <a href="https://github.com/sun-3/register-api">
-    <img src="static/icon.png" alt="Logo" width="100" height="100">
+    <img src="https://avatars.githubusercontent.com/u/72216343?v=4" alt="Logo" width="100" height="100">
   </a>
   <h3 align="center">Register</h3>
   <p align="center">
