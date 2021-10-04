@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class RegisterApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void ProfileServiceTest() {
+		System.out.println("TEST");
 	}
 
 }
